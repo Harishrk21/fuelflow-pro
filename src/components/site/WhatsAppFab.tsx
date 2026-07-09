@@ -1,5 +1,5 @@
 import { COMPANY } from "@/lib/company";
-import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export function WhatsAppFab() {
   return (
@@ -12,7 +12,7 @@ export function WhatsAppFab() {
     >
       <span className="absolute inset-0 rounded-full bg-primary/40 animate-pulse-ring" />
       <span className="relative grid size-14 place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-elegant group-hover:scale-105 transition">
-        <WhatsAppIcon variant="light" className="size-6" />
+        <WhatsAppIconBadge iconClassName="size-6" className="p-1.5" />
       </span>
     </a>
   );

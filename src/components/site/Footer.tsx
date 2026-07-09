@@ -58,7 +58,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm">
             <li><Link to="/technology" className="hover:text-primary">Technology</Link></li>
             <li><Link to="/industries" className="hover:text-primary">Industries</Link></li>
-            <li><Link to="/mobile-app" className="hover:text-primary">Mobile App</Link></li>
+            <li><Link to="/order" className="hover:text-primary">Order Fuel</Link></li>
             <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
         </div>

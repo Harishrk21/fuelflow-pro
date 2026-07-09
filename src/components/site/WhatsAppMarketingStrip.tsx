@@ -1,6 +1,6 @@
 import { Clock3, Bot, ArrowRight } from "lucide-react";
 import { COMPANY } from "@/lib/company";
-import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { WhatsAppIcon, WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export function WhatsAppMarketingStrip({ className = "" }: { className?: string }) {
   return (
@@ -27,7 +27,7 @@ export function WhatsAppMarketingStrip({ className = "" }: { className?: string 
             href={COMPANY.whatsappUrl}
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.02] transition"
           >
-            <WhatsAppIcon variant="light" className="size-4" />
+            <WhatsAppIconBadge iconClassName="size-4" />
             Order on WhatsApp
             <ArrowRight className="size-4" />
           </a>

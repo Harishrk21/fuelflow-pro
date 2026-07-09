@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { PageHero, BrochureFigure } from "@/components/site/PageParts";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { TiltCard } from "@/components/site/TiltCard";
-import atfHeroBg from "@/assets/atf-hero-web.jpg";
+import atfHeroBg from "@/assets/atf-hero-dashboard.png";
 import brochureAtfOverview from "@/assets/brochure-atf-overview.png";
 import brochureAtfFeatures from "@/assets/brochure-atf-features.png";
 import {
@@ -70,6 +70,8 @@ function Page() {
         subtitle="A stationary equipment that acts as a diesel data management device — procurement and consumption information at a click on your phone."
         cta={{ to: "/contact", label: "Book a Demo" }}
         backgroundImage={atfHeroBg}
+        backgroundImageClassName="absolute inset-0 h-full w-full object-cover object-center"
+        subtitleClassName="text-primary-dark/90 font-medium"
       />
       <WhatsAppMarketingStrip />
 

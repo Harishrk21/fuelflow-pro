@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as OrderRouteImport } from './routes/order'
 import { Route as MobileAppRouteImport } from './routes/mobile-app'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -25,6 +26,11 @@ const TechnologyRoute = TechnologyRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderRoute = OrderRouteImport.update({
+  id: '/order',
+  path: '/order',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MobileAppRoute = MobileAppRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/mobile-app': typeof MobileAppRoute
+  '/order': typeof OrderRoute
   '/services': typeof ServicesRoute
   '/technology': typeof TechnologyRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/mobile-app': typeof MobileAppRoute
+  '/order': typeof OrderRoute
   '/services': typeof ServicesRoute
   '/technology': typeof TechnologyRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/mobile-app': typeof MobileAppRoute
+  '/order': typeof OrderRoute
   '/services': typeof ServicesRoute
   '/technology': typeof TechnologyRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/mobile-app'
+    | '/order'
     | '/services'
     | '/technology'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/mobile-app'
+    | '/order'
     | '/services'
     | '/technology'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/mobile-app'
+    | '/order'
     | '/services'
     | '/technology'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IndustriesRoute: typeof IndustriesRoute
   MobileAppRoute: typeof MobileAppRoute
+  OrderRoute: typeof OrderRoute
   ServicesRoute: typeof ServicesRoute
   TechnologyRoute: typeof TechnologyRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order': {
+      id: '/order'
+      path: '/order'
+      fullPath: '/order'
+      preLoaderRoute: typeof OrderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mobile-app': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IndustriesRoute: IndustriesRoute,
   MobileAppRoute: MobileAppRoute,
+  OrderRoute: OrderRoute,
   ServicesRoute: ServicesRoute,
   TechnologyRoute: TechnologyRoute,
 }

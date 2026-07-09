@@ -8,8 +8,9 @@ import {
   ServerCog, Hotel, GraduationCap, Landmark, Bus, CheckCircle2, ArrowRight,
   Fuel, MapPin, ShieldCheck,
 } from "lucide-react";
-import industriesHeroBg from "@/assets/industries-hero-web.jpg";
+import technologyHeroBg from "@/assets/technology-hero-updated.png";
 import { COMPANY } from "@/lib/company";
+import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/industries")({
   component: Page,
@@ -280,7 +281,7 @@ function SharedValue() {
                 href={COMPANY.whatsappUrl}
                 className="inline-flex items-center gap-2 rounded-xl bg-primary text-white px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition"
               >
-                Order on WhatsApp
+                <WhatsAppIconBadge iconClassName="size-4" /> Order on WhatsApp
               </a>
             </div>
           </div>
@@ -317,7 +318,8 @@ function Page() {
         eyebrow="Industries"
         title="Powering the industries that power India."
         subtitle="From construction yards to data centres — authorised doorstep diesel with GPS tracking, IoT security, and digital records for every sector."
-        backgroundImage={industriesHeroBg}
+        backgroundImage={technologyHeroBg}
+        subtitleClassName="text-primary-dark/95 font-medium"
         cta={{ to: "/contact", label: "Talk to Our Team" }}
       />
       <WhatsAppMarketingStrip />

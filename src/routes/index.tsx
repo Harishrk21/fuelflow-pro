@@ -6,18 +6,19 @@ import {
   Gauge, Clock, Leaf, Activity, LockKeyhole, Sparkles, CheckCircle2,
   Building2, Factory, HardHat, Hospital, Warehouse, Ship, Wheat, Signal,
   ServerCog, Hotel, GraduationCap, Landmark, Bus, Zap, TrendingDown,
-  Wallet, Timer, Package, FileText, History, Star, LocateFixed, ReceiptText, CircleDollarSign, Send, PackageCheck,
+  Wallet, Timer, Package, FileText, History, Star,
 } from "lucide-react";
 import heroImg from "@/assets/hero-illustration.png";
 import brandLogo from "@/assets/calldiesel-logo-main.png";
-import brochureProcurement from "@/assets/brochure-fuel-procurement-system.png";
+import procurementComparison from "@/assets/procurement-system-comparison.png";
 import { BrochureFigure } from "@/components/site/PageParts";
 import { PartnerLogos } from "@/components/site/PartnerLogos";
 import { VehicleSpecs } from "@/components/site/VehicleSpecs";
 import { LicensesTrust } from "@/components/site/LicensesTrust";
 import { AppDownload } from "@/components/site/AppDownload";
+import { WhatsAppDemo } from "@/components/site/WhatsAppDemo";
 import { COMPANY } from "@/lib/company";
-import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { WhatsAppIcon, WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -62,7 +63,7 @@ const fadeUp = {
 };
 
 function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <section className={`mx-auto max-w-7xl px-6 py-20 md:py-28 ${className}`}>{children}</section>;
+  return <section className={`mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-20 lg:py-28 ${className}`}>{children}</section>;
 }
 
 // ----- HERO -----
@@ -72,7 +73,7 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-0 bg-gradient-mesh" />
       <div className="absolute inset-x-0 -top-24 h-[500px] bg-[radial-gradient(60%_60%_at_50%_0%,color-mix(in_oklab,#67B548_18%,transparent)_0%,transparent_70%)] pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-24 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-16 md:pt-24 md:pb-32 grid lg:grid-cols-12 gap-8 md:gap-12 items-center">
         <motion.div initial="hidden" animate="show" variants={fadeUp} className="lg:col-span-7">
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-primary-dark shadow-soft">
             <Sparkles className="size-3.5 text-primary" />
@@ -83,7 +84,7 @@ function Hero() {
             alt="Call Diesel logo"
             className="mt-5 h-16 md:h-20 w-auto object-contain"
           />
-          <h1 className="mt-3 text-5xl md:text-7xl font-display font-bold leading-[1.05] text-primary-dark">
+          <h1 className="mt-3 text-4xl sm:text-5xl md:text-7xl font-display font-bold leading-[1.05] text-primary-dark">
             The Future of{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-primary bg-clip-text text-transparent">Fuel Distribution</span>
@@ -98,8 +99,8 @@ function Hero() {
             IoT-secured, and delivered to your doorstep.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/mobile-app" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.02] transition shine-on-hover">
-              Order on App <ArrowRight className="size-4" />
+            <Link to="/order" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.02] transition shine-on-hover">
+              Order Fuel <ArrowRight className="size-4" />
             </Link>
             <a href={COMPANY.whatsappUrl} className="inline-flex items-center gap-2 rounded-xl bg-card border border-border px-6 py-3.5 text-sm font-semibold text-foreground hover:bg-accent/40 transition">
               <WhatsAppIcon className="size-4" /> Order on WhatsApp
@@ -119,18 +120,35 @@ function Hero() {
 
         <motion.div initial={{ opacity: 0, scale: 0.9, rotateY: 12 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-5 relative scene-3d">
           <div className="absolute -inset-6 rounded-full bg-primary/15 blur-3xl animate-orb" />
-          <div className="relative aspect-square animate-float">
+          <div className="relative mx-auto aspect-square max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none animate-float">
             <img src={heroImg} alt="Fuel delivery truck with WhatsApp ordering and GPS tracking" width={1200} height={1200} className="w-full h-full object-contain drop-shadow-2xl" />
           </div>
-          {/* Floating chips */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="absolute top-6 -left-2 glass rounded-2xl px-4 py-3 shadow-elegant flex items-center gap-3">
+
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 lg:hidden">
+            <div className="glass rounded-2xl px-4 py-3 shadow-elegant flex items-center gap-3">
+              <MapPin className="size-5 text-primary shrink-0" />
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Live tracking</p>
+                <p className="text-sm font-semibold text-primary-dark">ETA 12 min</p>
+              </div>
+            </div>
+            <div className="glass rounded-2xl px-4 py-3 shadow-elegant flex items-center gap-3">
+              <Radio className="size-5 text-primary shrink-0 animate-pulse" />
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">IoT sensor</p>
+                <p className="text-sm font-semibold text-primary-dark">Secure dispensing</p>
+              </div>
+            </div>
+          </div>
+
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="absolute top-6 left-0 hidden lg:flex glass rounded-2xl px-4 py-3 shadow-elegant items-center gap-3">
             <MapPin className="size-5 text-primary" />
             <div>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Live tracking</p>
               <p className="text-sm font-semibold text-primary-dark">ETA 12 min</p>
             </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.9 }} className="absolute bottom-10 -right-2 glass rounded-2xl px-4 py-3 shadow-elegant flex items-center gap-3">
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.9 }} className="absolute bottom-10 right-0 hidden lg:flex glass rounded-2xl px-4 py-3 shadow-elegant items-center gap-3">
             <Radio className="size-5 text-primary animate-pulse" />
             <div>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground">IoT sensor</p>
@@ -274,15 +292,16 @@ function ProblemSolution() {
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-12 rounded-3xl border border-border bg-card p-3 md:p-4 shadow-soft overflow-hidden"
+        className="mt-8 md:mt-12 rounded-3xl border border-border bg-card p-3 md:p-4 shadow-soft overflow-hidden"
       >
         <BrochureFigure
-          src={brochureProcurement}
-          alt="Traditional fuel procurement flow showing pilferage, spillage, time loss, storage issues, quality problems and dead mileage"
+          wide
+          src={procurementComparison}
+          alt="Side-by-side comparison of the current diesel procurement system with pump visits and winding routes versus the direct Call Diesel doorstep delivery path"
         />
         <p className="mt-4 text-center text-sm text-foreground/60 max-w-3xl mx-auto">
-          From petrol pump to your site — pilferage, spillage, wasted time, storage burden,
-          quality gaps, and dead mileage add up. Call Diesel replaces this with doorstep delivery.
+          The traditional pump-to-site route wastes time, fuel, and manpower. Call Diesel replaces
+          the winding procurement path with a direct doorstep delivery line to your operations.
         </p>
       </motion.div>
 
@@ -325,31 +344,82 @@ function ProblemSolution() {
 
 // ----- HOW IT WORKS -----
 function HowItWorks() {
+  const [activeStep, setActiveStep] = useState(0);
   const steps = [
-    { icon: WhatsAppIcon as any, t: "Book on App / WhatsApp" },
-    { icon: Fuel, t: "Choose Fuel Type" },
-    { icon: Package, t: "Select Quantity" },
-    { icon: MapPin, t: "Delivery Location" },
-    { icon: Truck, t: "Track Live" },
-    { icon: ShieldCheck, t: "Secure Delivery" },
-    { icon: FileText, t: "Digital Invoice" },
-    { icon: History, t: "History Saved" },
+    { icon: WhatsAppIcon as any, t: "Book on App / WhatsApp", short: "Book" },
+    { icon: Fuel, t: "Choose Fuel Type", short: "Fuel" },
+    { icon: Package, t: "Select Quantity", short: "Qty" },
+    { icon: MapPin, t: "Delivery Location", short: "Location" },
+    { icon: Truck, t: "Track Live", short: "Track" },
+    { icon: ShieldCheck, t: "Secure Delivery", short: "Deliver" },
+    { icon: FileText, t: "Digital Invoice", short: "Invoice" },
+    { icon: History, t: "History Saved", short: "History" },
   ];
+  const step = steps[activeStep];
+
   return (
     <Section>
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">How it works</p>
-        <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark">
           Fuel in 8 simple steps.
         </h2>
-        <p className="mt-4 text-sm md:text-base text-foreground/65">
+        <p className="mt-3 md:mt-4 text-sm md:text-base text-foreground/65">
           A guided, trackable flow from booking to digital proof of delivery.
         </p>
       </div>
 
-      <div className="mt-12 rounded-3xl border border-border bg-card/70 p-4 sm:p-6 md:p-8 shadow-soft relative overflow-hidden">
+      <div className="mt-8 md:hidden max-w-sm mx-auto">
+        <div className="grid grid-cols-4 gap-2">
+          {steps.map((s, i) => (
+            <button
+              key={s.t}
+              type="button"
+              onClick={() => setActiveStep(i)}
+              aria-label={`Step ${i + 1}: ${s.t}`}
+              aria-current={activeStep === i ? "step" : undefined}
+              className="flex flex-col items-center gap-1 min-w-0"
+            >
+              <div
+                className={`grid size-9 place-items-center rounded-full text-xs font-bold transition ${
+                  activeStep === i
+                    ? "bg-gradient-primary text-white shadow-elegant"
+                    : "bg-card border border-border text-muted-foreground"
+                }`}
+              >
+                {i + 1}
+              </div>
+              <span
+                className={`w-full text-center text-[10px] leading-tight font-semibold truncate ${
+                  activeStep === i ? "text-primary-dark" : "text-muted-foreground"
+                }`}
+              >
+                {s.short}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <motion.div
+          key={step.t}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="mt-4 rounded-2xl border border-border bg-card p-4 shadow-soft text-center"
+        >
+          <div className="mx-auto grid size-11 place-items-center rounded-xl bg-accent text-primary-dark">
+            <step.icon className="size-5" />
+          </div>
+          <p className="mt-3 text-xs font-bold text-primary uppercase tracking-wider">
+            Step {activeStep + 1} of {steps.length}
+          </p>
+          <p className="mt-1 font-semibold text-primary-dark text-sm leading-snug">{step.t}</p>
+        </motion.div>
+      </div>
+
+      <div className="mt-8 md:mt-12 hidden md:block rounded-3xl border border-border bg-card/70 p-4 sm:p-6 md:p-8 shadow-soft relative overflow-hidden">
         <div className="absolute inset-x-0 top-1/2 hidden lg:block h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 relative">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 relative">
           {steps.map((s, i) => (
             <motion.div
               key={s.t}
@@ -385,215 +455,6 @@ function HowItWorks() {
 }
 
 // ----- WHATSAPP DEMO -----
-function WhatsAppDemo() {
-  const chatRef = useRef<HTMLDivElement>(null);
-  const messagesRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(chatRef, { amount: 0.45 });
-  const flow = [
-    { from: "bot", text: "Hi! Welcome to Call Diesel 👋" },
-    { from: "bot", text: "Please share your delivery address." },
-    { from: "user", text: "No 726 Anna Salai, Nandanam, Chennai" },
-    { from: "bot", text: "Great. Please share your live location 📍" },
-    { from: "user", text: "Location shared" },
-    { from: "bot", text: "Select products: Diesel + Add-ons (Engine Oil)." },
-    { from: "bot", text: "Booking confirmed ✅ Invoice shared. Track live in WhatsApp." },
-  ];
-
-  const statusUpdates = [
-    { icon: Send, title: "Order Started", desc: "Your order has been started and assigned to a vehicle." },
-    { icon: Truck, title: "On The Way", desc: "Your fuel truck is on the way with live ETA updates." },
-    { icon: PackageCheck, title: "Delivered", desc: "Order delivered successfully with quantity & invoice proof." },
-  ];
-
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [typingSender, setTypingSender] = useState<"bot" | "user" | null>(null);
-
-  useEffect(() => {
-    if (!inView) return;
-    let cancelled = false;
-    const timers: number[] = [];
-    const total = flow.length;
-
-    const runLoop = () => {
-      if (cancelled) return;
-      setVisibleCount(0);
-      setTypingSender(null);
-
-      const run = (idx: number) => {
-        if (cancelled) return;
-        if (idx >= total) {
-          timers.push(window.setTimeout(runLoop, 1800));
-          return;
-        }
-
-        const sender = flow[idx].from as "bot" | "user";
-        setTypingSender(sender);
-        timers.push(
-          window.setTimeout(() => {
-            if (cancelled) return;
-            setVisibleCount(idx + 1);
-            setTypingSender(null);
-            run(idx + 1);
-          }, sender === "bot" ? 900 : 650),
-        );
-      };
-
-      timers.push(window.setTimeout(() => run(0), 280));
-    };
-
-    runLoop();
-    return () => {
-      cancelled = true;
-      timers.forEach((t) => clearTimeout(t));
-    };
-  }, [inView]);
-
-  useEffect(() => {
-    const el = messagesRef.current;
-    if (!el) return;
-    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
-  }, [visibleCount, typingSender]);
-
-  return (
-    <Section className="!pt-10 md:!pt-14">
-      <div className="rounded-3xl bg-card border border-border p-6 md:p-10 shadow-elegant relative overflow-hidden">
-        <div className="absolute -top-24 -left-24 size-72 rounded-full bg-primary/15 blur-3xl animate-orb" />
-        <div className="absolute -bottom-28 -right-20 size-72 rounded-full bg-primary-dark/10 blur-3xl animate-orb-delayed" />
-
-        <div className="relative grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-primary font-semibold text-sm tracking-wider uppercase">WhatsApp Automation · 24×7</p>
-            <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark leading-tight">
-              Order fuel on WhatsApp in under 60 seconds.
-            </h2>
-            <p className="mt-5 text-foreground/70 leading-relaxed">
-              Customers just say “Hi”. Our automated flow collects address and location,
-              offers diesel + add-ons like engine oil, sends instant order summary,
-              supports Pay Now / COD, confirms booking, and keeps sending live updates
-              until delivery — fully automated 24/7.
-            </p>
-
-            <div className="mt-7 grid sm:grid-cols-2 gap-3">
-              {[
-                "Address + location capture",
-                "Diesel + engine oil add-ons",
-                "Instant order summary",
-                "Pay Now / COD options",
-                "Automated booking confirmation",
-                "Live order status updates",
-              ].map((x) => (
-                <div key={x} className="flex items-center gap-2 rounded-xl bg-secondary/60 px-3 py-2 text-sm text-primary-dark">
-                  <CheckCircle2 className="size-4 text-primary shrink-0" /> {x}
-                </div>
-              ))}
-            </div>
-
-            <a href={COMPANY.whatsappUrl} className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.02] transition">
-              <WhatsAppIcon variant="light" className="size-4" /> Start on WhatsApp
-            </a>
-          </div>
-
-          <motion.div
-            ref={chatRef}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="mx-auto w-full max-w-[280px] sm:max-w-[320px] rounded-[2.35rem] bg-primary-dark p-2.5 shadow-elegant animate-depth-pulse">
-              <div className="flex h-[520px] sm:h-[560px] flex-col rounded-[2rem] overflow-hidden bg-[#E5DDD5] border border-white/30">
-                <div className="shrink-0 bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
-                  <img src={brandLogo} alt="Call Diesel" className="h-8 w-auto object-contain mix-blend-screen" />
-                  <div>
-                    <p className="text-sm font-semibold">Call Diesel Assistant</p>
-                    <p className="text-[10px] text-white/70">automated • 24/7</p>
-                  </div>
-                </div>
-
-                <div ref={messagesRef} className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-2">
-                  {flow.slice(0, visibleCount).map((m, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: m.from === "user" ? 20 : -20, y: 8 }}
-                      animate={{ opacity: 1, x: 0, y: 0 }}
-                      transition={{ duration: 0.28 }}
-                      className={`max-w-[88%] rounded-xl px-3 py-2 text-sm shadow-sm ${
-                        m.from === "user"
-                          ? "ml-auto bg-[#DCF8C6] text-[#1f2937]"
-                          : "bg-white text-[#1f2937]"
-                      }`}
-                    >
-                      {m.text}
-                    </motion.div>
-                  ))}
-
-                  {typingSender && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`max-w-[45%] rounded-xl px-3 py-2 shadow-sm ${
-                        typingSender === "user" ? "ml-auto bg-[#DCF8C6]" : "bg-white"
-                      }`}
-                    >
-                      <div className="flex items-center gap-1.5">
-                        <span className="size-1.5 rounded-full bg-foreground/35 animate-bounce [animation-delay:-0.2s]" />
-                        <span className="size-1.5 rounded-full bg-foreground/35 animate-bounce [animation-delay:-0.1s]" />
-                        <span className="size-1.5 rounded-full bg-foreground/35 animate-bounce" />
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {visibleCount >= flow.length && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.35 }}
-                      className="rounded-xl bg-white p-3 border border-border"
-                    >
-                    <p className="text-xs font-semibold text-primary-dark">Order Summary</p>
-                    <div className="mt-2 space-y-1 text-[11px] text-foreground/70">
-                      <p className="flex items-center justify-between"><span className="inline-flex items-center gap-1"><Fuel className="size-3.5" /> Diesel</span><span>500 L</span></p>
-                      <p className="flex items-center justify-between"><span className="inline-flex items-center gap-1"><ReceiptText className="size-3.5" /> Engine Oil Add-on</span><span>2 Cans</span></p>
-                      <p className="flex items-center justify-between"><span>Total</span><span className="font-semibold text-primary-dark">₹41,950</span></p>
-                    </div>
-                    <div className="mt-3 grid grid-cols-2 gap-2">
-                      <button className="rounded-lg bg-primary text-white text-[11px] py-1.5 font-semibold inline-flex items-center justify-center gap-1"><CircleDollarSign className="size-3.5" /> Pay Now</button>
-                      <button className="rounded-lg bg-secondary text-primary-dark text-[11px] py-1.5 font-semibold inline-flex items-center justify-center gap-1"><MapPin className="size-3.5" /> COD</button>
-                    </div>
-                  </motion.div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 grid sm:grid-cols-3 gap-3">
-              {statusUpdates.map((s, i) => (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + i * 0.12 }}
-                  className="rounded-xl bg-card border border-border px-3 py-3 shadow-soft"
-                >
-                  <p className="inline-flex items-center gap-1 text-xs font-semibold text-primary-dark">
-                    <s.icon className="size-3.5 text-primary" /> {s.title}
-                  </p>
-                  <p className="mt-1 text-[11px] text-foreground/60 leading-relaxed">{s.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold text-primary-dark">
-              <LocateFixed className="size-3.5 text-primary animate-pulse" />
-              Automated WhatsApp order updates · 24×7
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </Section>
-  );
-}
 
 // ----- SERVICES PREVIEW -----
 function ServicesPreview() {
@@ -790,7 +651,7 @@ function CTA() {
               Get a Quote <ArrowRight className="size-4" />
             </Link>
             <a href={COMPANY.whatsappUrl} className="inline-flex items-center gap-2 rounded-xl bg-primary-dark text-white px-6 py-3.5 text-sm font-semibold hover:scale-[1.02] transition">
-              <WhatsAppIcon variant="light" className="size-4" /> WhatsApp Us
+              <WhatsAppIconBadge iconClassName="size-4" /> WhatsApp Us
             </a>
           </div>
         </div>
@@ -817,7 +678,7 @@ function WhyDoorstep() {
           Diesel procurement is a matter of just a click on your Call Diesel App.
         </p>
       </div>
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="mt-8 md:mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
         {items.map((x, i) => (
           <motion.div
             key={x.t}
@@ -844,7 +705,7 @@ function HomePage() {
     <div>
       <Hero />
       <PartnerLogos />
-      <WhatsAppDemo />
+      <WhatsAppDemo className="!pt-10 md:!pt-14" />
       <Stats />
       <About />
       <ProblemSolution />

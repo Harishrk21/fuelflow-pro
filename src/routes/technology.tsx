@@ -419,19 +419,38 @@ function DeliveryFlow() {
         ))}
       </div>
 
-      <div className="mt-8 flex md:hidden gap-2 overflow-x-auto pb-2 scrollbar-hide">
-        {deliverySteps.map((s, i) => (
-          <button
-            key={s.step}
-            type="button"
-            onClick={() => setActiveStep(i)}
-            className={`shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition ${
-              activeStep === i ? "bg-gradient-primary text-white" : "bg-card border border-border"
-            }`}
-          >
-            {s.short}
-          </button>
-        ))}
+      <div className="mt-8 md:hidden max-w-sm mx-auto">
+        <div className="flex items-center justify-between gap-1">
+          {deliverySteps.map((s, i) => (
+            <button
+              key={s.step}
+              type="button"
+              onClick={() => setActiveStep(i)}
+              aria-label={`Step ${s.step}: ${s.short}`}
+              aria-current={activeStep === i ? "step" : undefined}
+              className="flex flex-1 flex-col items-center gap-1.5 min-w-0"
+            >
+              <div
+                className={`grid size-9 place-items-center rounded-full text-xs font-bold transition ${
+                  activeStep === i
+                    ? "bg-gradient-primary text-white shadow-elegant scale-105"
+                    : activeStep > i
+                      ? "bg-primary-dark text-white"
+                      : "bg-card border-2 border-border text-muted-foreground"
+                }`}
+              >
+                {activeStep > i ? <CheckCircle2 className="size-4" /> : s.step}
+              </div>
+              <span
+                className={`w-full text-center text-[10px] leading-tight font-semibold truncate px-0.5 ${
+                  activeStep === i ? "text-primary-dark" : "text-muted-foreground"
+                }`}
+              >
+                {s.short}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <AnimatePresence mode="wait">

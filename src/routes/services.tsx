@@ -5,8 +5,8 @@ import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { VehicleSpecs } from "@/components/site/VehicleSpecs";
 import { Truck, Fuel, Gauge, HardHat, Zap, Package, Clock, Radio, Smartphone, MapPin, ShieldCheck, FileText } from "lucide-react";
-import servicesHeroBg from "@/assets/services-hero-truck.png";
-import heroImg from "@/assets/hero-illustration.png";
+import operationsTruck from "@/assets/operations-delivery-truck.png";
+import milestoneFlagOff from "@/assets/milestone-flag-off.png";
 
 export const Route = createFileRoute("/services")({
   component: Page,
@@ -80,8 +80,8 @@ function Page() {
         title="Every fuel need. One trusted partner."
         subtitle="From single generators to enterprise fleets, we deliver authorised HP / IOCL / BPCL fuel — and the technology to manage it."
         cta={{ to: "/contact", label: "Get a Quote" }}
-        backgroundImageClassName="absolute inset-0 h-full w-full object-cover object-center"
-        backgroundImage={servicesHeroBg}
+        backgroundImageClassName="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+        backgroundImage={operationsTruck}
       />
       <WhatsAppMarketingStrip />
       <FeatureGrid items={services} />
@@ -97,10 +97,13 @@ function Page() {
               <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
               <div className="relative rounded-3xl overflow-hidden border border-border bg-gradient-to-br from-primary/10 via-white to-secondary/50 p-5 md:p-7">
                 <img
-                  src={heroImg}
-                  alt="App and secure doorstep diesel delivery"
-                  className="w-full h-auto object-contain"
+                  src={milestoneFlagOff}
+                  alt="Call Diesel FuelEnt flag-off ceremony with PESO-approved mobile fuel delivery truck and Bharat Petroleum partnership"
+                  className="w-full h-auto object-cover rounded-2xl"
                 />
+                <p className="mt-3 text-xs text-foreground/55 text-center">
+                  PESO-approved fleet launch — authorised Bharat Petroleum doorstep fuel delivery in Chennai.
+                </p>
                 <div className="mt-5 grid sm:grid-cols-2 gap-3">
                   {[
                     "App + WhatsApp Ordering",

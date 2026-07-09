@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { Shield, FileCheck, Award, Building2 } from "lucide-react";
 import { LICENSES, COMPANY } from "@/lib/company";
 import { TiltCard } from "./TiltCard";
+import teamPartnership from "@/assets/team-bp-partnership.png";
 
 export function LicensesTrust() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-20 lg:py-28">
       <div className="grid lg:grid-cols-2 gap-12 items-start">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -53,6 +54,23 @@ export function LicensesTrust() {
           ))}
         </div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mt-14 rounded-3xl border border-border bg-card overflow-hidden shadow-soft"
+      >
+        <img
+          src={teamPartnership}
+          alt="Call Diesel and Bharat Petroleum team at the Chennai Retail Territory FuelEnt flag-off ceremony"
+          className="w-full h-auto object-cover max-h-[420px] md:max-h-[480px]"
+        />
+        <p className="px-5 py-4 text-center text-sm text-foreground/60 border-t border-border bg-background/80">
+          On the ground with authorised PSU partners — doorstep fuel delivery backed by a licensed,
+          verified operating team.
+        </p>
+      </motion.div>
     </section>
   );
 }

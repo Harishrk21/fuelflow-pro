@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { ScrollReveal } from "./ScrollReveal";
 
 export function PageHero({
-  eyebrow, title, subtitle, cta, backgroundImage, subtitleClassName, backgroundImageClassName,
+  eyebrow, title, subtitle, cta, backgroundImage, subtitleClassName, backgroundImageClassName, softOverlay,
 }: {
   eyebrow: string;
   title: string;
@@ -13,6 +13,7 @@ export function PageHero({
   backgroundImage?: string;
   subtitleClassName?: string;
   backgroundImageClassName?: string;
+  softOverlay?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-hero">
@@ -24,9 +25,13 @@ export function PageHero({
             aria-hidden
             className={backgroundImageClassName ?? "absolute inset-0 h-full w-full object-cover object-right md:object-center"}
           />
-          <div className="absolute inset-0 bg-[#214C1F]/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F6F2E8]/75 via-[#F6F2E8]/45 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F6F2E8]/55 via-transparent to-[#F6F2E8]/15" />
+          <div className={softOverlay ? "absolute inset-0 bg-[#F6F2E8]/35" : "absolute inset-0 bg-[#214C1F]/20"} />
+          <div className={softOverlay
+            ? "absolute inset-0 bg-gradient-to-t from-[#F6F2E8]/80 via-[#F6F2E8]/25 to-[#F6F2E8]/10"
+            : "absolute inset-0 bg-gradient-to-r from-[#F6F2E8]/75 via-[#F6F2E8]/45 to-transparent"} />
+          {!softOverlay && (
+            <div className="absolute inset-0 bg-gradient-to-t from-[#F6F2E8]/55 via-transparent to-[#F6F2E8]/15" />
+          )}
         </>
       )}
       {!backgroundImage && <div className="absolute inset-0 bg-gradient-mesh" />}
@@ -50,13 +55,19 @@ export function BrochureFigure({
   src,
   alt,
   className = "",
+  wide = false,
 }: {
   src: string;
   alt: string;
   className?: string;
+  wide?: boolean;
 }) {
+  const widthClass = wide
+    ? "max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl"
+    : "max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl";
+
   return (
-    <div className={`mx-auto w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl ${className}`}>
+    <div className={`mx-auto w-full ${widthClass} ${className}`}>
       <img
         src={src}
         alt={alt}

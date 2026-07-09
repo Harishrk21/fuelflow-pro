@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Send, Building2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { COMPANY } from "@/lib/company";
-import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 import { LicensesTrust } from "@/components/site/LicensesTrust";
-import contactHeroBg from "@/assets/contact-hero-web.jpg";
+import operationsTruck from "@/assets/operations-delivery-truck.png";
 
 export const Route = createFileRoute("/contact")({
   component: Page,
@@ -38,10 +38,10 @@ function Page() {
     <div>
       <section className="relative overflow-hidden bg-gradient-hero">
         <img
-          src={contactHeroBg}
+          src={operationsTruck}
           alt=""
           aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
         />
         <div className="absolute inset-0 bg-[#214C1F]/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#F6F2E8]/85 via-[#F6F2E8]/65 to-[#F6F2E8]/35" />
@@ -59,7 +59,7 @@ function Page() {
             </p>
             <div className="mt-10 space-y-4">
               <a href={COMPANY.whatsappUrl} className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft hover:shadow-elegant transition shine-on-hover">
-                <div className="grid size-11 place-items-center rounded-xl bg-primary text-primary-foreground"><WhatsAppIcon variant="light" className="size-5" /></div>
+                <div className="grid size-11 place-items-center rounded-xl bg-primary text-primary-foreground"><WhatsAppIconBadge iconClassName="size-5" className="p-1" /></div>
                 <div>
                   <p className="text-xs text-muted-foreground">WhatsApp</p>
                   <p className="font-semibold text-primary-dark">{COMPANY.whatsappDisplay}</p>
