@@ -5,10 +5,10 @@ import { L as Instagram, O as Menu, P as Linkedin, Y as Facebook, n as X, o as T
 import { a as WhatsAppIcon, n as FUEL_PARTNERS, t as COMPANY } from "./WhatsAppIcon-CQzq3ziO.mjs";
 import { t as calldiesel_logo_main_default } from "./calldiesel-logo-main-Db8QkPcY.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-O8LZmAoT.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CNUpWeGm.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-CW-BU6mO.css";
+var styles_default = "/assets/styles-T8Coosc6.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -534,7 +534,7 @@ var Route$5 = createFileRoute("/services")({
 		}]
 	})
 });
-var $$splitComponentImporter$4 = () => import("./mobile-app-BzpZ_Ee8.mjs");
+var $$splitComponentImporter$4 = () => import("./mobile-app-Bmq28iMY.mjs");
 var Route$4 = createFileRoute("/mobile-app")({
 	component: lazyRouteComponent($$splitComponentImporter$4, "component"),
 	head: () => ({

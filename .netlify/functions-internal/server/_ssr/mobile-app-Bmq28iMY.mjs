@@ -5,9 +5,9 @@ import { n as FeatureGrid, r as PageHero, t as BrochureFigure } from "./PagePart
 import { t as COMPANY } from "./WhatsAppIcon-CQzq3ziO.mjs";
 import { t as WhatsAppMarketingStrip } from "./WhatsAppMarketingStrip-e2rV0_Hn.mjs";
 import { t as AppDownload } from "./AppDownload-C4UyAFh2.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/mobile-app-BzpZ_Ee8.js
+//#region node_modules/.nitro/vite/services/ssr/assets/mobile-app-Bmq28iMY.js
 var import_jsx_runtime = require_jsx_runtime();
-var mobile_app_hero_web_default = "/assets/mobile-app-hero-web-ElpFd_2u.jpg";
+var mobile_app_hero_updated_default = "/assets/mobile-app-hero-updated-CTgYoxj4.png";
 var brochure_mobile_app_platform_default = "/assets/brochure-mobile-app-platform-DHZ3qvg5.png";
 var feats = [
 	{
@@ -71,7 +71,9 @@ function Page() {
 				to: "/contact",
 				label: "Request Access"
 			},
-			backgroundImage: mobile_app_hero_web_default
+			backgroundImageClassName: "absolute inset-0 h-full w-full object-cover object-left md:object-center",
+			subtitleClassName: "text-primary-dark/90 font-medium",
+			backgroundImage: mobile_app_hero_updated_default
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WhatsAppMarketingStrip, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
