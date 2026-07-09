@@ -1,9 +1,10 @@
-import { MessageCircle } from "lucide-react";
+import { COMPANY } from "@/lib/company";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
 export function WhatsAppFab() {
   return (
     <a
-      href="https://wa.me/919999999999"
+      href={COMPANY.whatsappUrl}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
@@ -11,7 +12,7 @@ export function WhatsAppFab() {
     >
       <span className="absolute inset-0 rounded-full bg-primary/40 animate-pulse-ring" />
       <span className="relative grid size-14 place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-elegant group-hover:scale-105 transition">
-        <MessageCircle className="size-6" />
+        <WhatsAppIcon variant="light" className="size-6" />
       </span>
     </a>
   );

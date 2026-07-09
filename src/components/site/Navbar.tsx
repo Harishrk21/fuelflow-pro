@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Flame } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { COMPANY } from "@/lib/company";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
 const links = [
   { to: "/", label: "Home" },
@@ -35,13 +37,21 @@ export function Navbar() {
             scrolled ? "glass shadow-soft" : "bg-transparent"
           }`}
         >
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-            <span className="grid size-9 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft">
-              <Flame className="size-5" />
-            </span>
-            <span className="text-primary-dark">
-              Call<span className="text-primary">Diesel</span>
-            </span>
+          <Link to="/" className="flex items-center gap-2.5 min-w-0">
+            <img
+              src="/favicon.png"
+              alt=""
+              aria-hidden
+              className="size-10 sm:size-12 shrink-0 rounded-lg object-contain"
+            />
+            <div className="min-w-0 leading-tight">
+              <span className="block font-display font-bold text-base sm:text-lg text-primary-dark tracking-tight">
+                Call<span className="text-primary">Diesel</span>
+              </span>
+              <span className="hidden sm:block text-[10px] font-medium text-muted-foreground tracking-wide truncate">
+                {COMPANY.tagline}
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
@@ -59,16 +69,17 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center gap-2">
             <a
-              href="https://wa.me/919999999999"
+              href={COMPANY.whatsappUrl}
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm font-medium hover:bg-card transition"
             >
+              <WhatsAppIcon className="size-4" />
               WhatsApp
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center rounded-xl bg-gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition"
+              className="inline-flex items-center rounded-xl bg-gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft hover:shadow-elegant transition shine-on-hover"
             >
-              Order Fuel
+              Order Now
             </Link>
           </div>
 
@@ -99,7 +110,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2 text-center rounded-xl bg-gradient-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
               >
-                Order Fuel
+                Order Now
               </Link>
             </nav>
           </div>

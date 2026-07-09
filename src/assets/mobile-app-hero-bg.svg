@@ -1,0 +1,52 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F2E8"/>
+      <stop offset="1" stop-color="#EDF8E8"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 220) rotate(10) scale(560 360)">
+      <stop stop-color="#67B548" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#67B548" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1480 860) rotate(-8) scale(700 420)">
+      <stop stop-color="#214C1F" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#214C1F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glowA)"/>
+  <rect width="1920" height="1080" fill="url(#glowB)"/>
+
+  <g opacity="0.18">
+    <rect x="230" y="170" width="330" height="650" rx="46" fill="#FFFFFF"/>
+    <rect x="260" y="230" width="270" height="90" rx="20" fill="#EAF6E3"/>
+    <rect x="260" y="350" width="270" height="110" rx="20" fill="#F2FBEE"/>
+    <rect x="260" y="490" width="270" height="100" rx="20" fill="#EAF6E3"/>
+    <rect x="260" y="620" width="170" height="48" rx="12" fill="#67B548"/>
+  </g>
+
+  <g opacity="0.15">
+    <rect x="1380" y="240" width="310" height="600" rx="42" fill="#FFFFFF"/>
+    <rect x="1410" y="300" width="250" height="86" rx="18" fill="#EAF6E3"/>
+    <rect x="1410" y="414" width="250" height="86" rx="18" fill="#F2FBEE"/>
+    <rect x="1410" y="528" width="250" height="86" rx="18" fill="#EAF6E3"/>
+  </g>
+
+  <g opacity="0.38" stroke="#67B548" stroke-width="2" fill="none">
+    <path d="M560 430C770 350 920 360 1080 470C1200 552 1310 600 1410 650"/>
+    <path d="M560 520C780 480 940 500 1120 610C1230 676 1320 730 1410 780"/>
+  </g>
+
+  <g fill="#214C1F" opacity="0.45">
+    <circle cx="565" cy="430" r="10"/>
+    <circle cx="1080" cy="470" r="9"/>
+    <circle cx="1410" cy="650" r="10"/>
+  </g>
+
+  <g opacity="0.2" stroke="#214C1F" stroke-width="1.4">
+    <circle cx="565" cy="430" r="28"/>
+    <circle cx="1080" cy="470" r="24"/>
+    <circle cx="1410" cy="650" r="28"/>
+  </g>
+</svg>

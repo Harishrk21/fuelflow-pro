@@ -1,14 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { MessageCircle, Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Building2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { COMPANY } from "@/lib/company";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { LicensesTrust } from "@/components/site/LicensesTrust";
+import contactHeroBg from "@/assets/contact-hero-web.jpg";
 
 export const Route = createFileRoute("/contact")({
   component: Page,
   head: () => ({
     meta: [
       { title: "Contact & Get a Quote — Call Diesel" },
-      { name: "description", content: "Request a fuel delivery quote, book a demo, or talk to our team on WhatsApp or phone." },
+      { name: "description", content: "Contact Jeyaveer Fuels / Call Diesel — Chennai. Call 044-4311 4311 or email calldiesel@yahoo.com for doorstep diesel delivery." },
       { property: "og:title", content: "Contact — Call Diesel" },
       { property: "og:url", content: "/contact" },
     ],
@@ -25,6 +29,7 @@ const faqs = [
   { q: "How secure is fuel delivery?", a: "IoT-authorised dispensing, brake interlock and geo-fenced zones." },
   { q: "What areas do you serve?", a: "Chennai and expanding across Tamil Nadu and South India." },
   { q: "Can I track previous orders?", a: "Yes — full history is available in the app and dashboard." },
+  { q: "Whose fuel do you deliver?", a: "Authorised fuel from Hindustan Petroleum (HP), IndianOil and Bharat Petroleum." },
 ];
 
 function Page() {
@@ -32,43 +37,61 @@ function Page() {
   return (
     <div>
       <section className="relative overflow-hidden bg-gradient-hero">
-        <div className="absolute inset-0 bg-gradient-mesh" />
+        <img
+          src={contactHeroBg}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#214C1F]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F6F2E8]/85 via-[#F6F2E8]/65 to-[#F6F2E8]/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F6F2E8]/70 via-transparent to-[#F6F2E8]/20" />
+        <div className="absolute -top-20 right-10 size-64 rounded-full bg-primary/20 blur-3xl animate-orb pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-14">
           <div>
             <p className="text-primary font-semibold text-sm tracking-wider uppercase">Contact</p>
             <h1 className="mt-3 text-5xl md:text-6xl font-display font-bold text-primary-dark leading-tight">
-              Let's power your operations.
+              Let&apos;s power your operations.
             </h1>
             <p className="mt-5 text-lg text-foreground/70 max-w-lg">
-              Tell us what you need. Our team responds within 30 minutes during business hours.
+              Tell us what you need. Call us at {COMPANY.phoneDisplay} or message on WhatsApp —
+              our team responds quickly during business hours.
             </p>
             <div className="mt-10 space-y-4">
-              <a href="https://wa.me/919999999999" className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft hover:shadow-elegant transition">
-                <div className="grid size-11 place-items-center rounded-xl bg-primary text-primary-foreground"><MessageCircle className="size-5" /></div>
+              <a href={COMPANY.whatsappUrl} className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft hover:shadow-elegant transition shine-on-hover">
+                <div className="grid size-11 place-items-center rounded-xl bg-primary text-primary-foreground"><WhatsAppIcon variant="light" className="size-5" /></div>
                 <div>
                   <p className="text-xs text-muted-foreground">WhatsApp</p>
-                  <p className="font-semibold text-primary-dark">+91 99999 99999</p>
+                  <p className="font-semibold text-primary-dark">{COMPANY.whatsappDisplay}</p>
                 </div>
               </a>
-              <a href="tel:+919999999999" className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft hover:shadow-elegant transition">
+              <a href={`tel:${COMPANY.phoneTel}`} className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft hover:shadow-elegant transition">
                 <div className="grid size-11 place-items-center rounded-xl bg-accent text-primary-dark"><Phone className="size-5" /></div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Call</p>
-                  <p className="font-semibold text-primary-dark">+91 99999 99999</p>
+                  <p className="text-xs text-muted-foreground">Call Us</p>
+                  <p className="font-semibold text-primary-dark">{COMPANY.phoneDisplay}</p>
                 </div>
               </a>
-              <div className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft">
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft hover:shadow-elegant transition">
                 <div className="grid size-11 place-items-center rounded-xl bg-accent text-primary-dark"><Mail className="size-5" /></div>
                 <div>
                   <p className="text-xs text-muted-foreground">Email</p>
-                  <p className="font-semibold text-primary-dark">hello@calldiesel.com</p>
+                  <p className="font-semibold text-primary-dark">{COMPANY.email}</p>
                 </div>
-              </div>
+              </a>
               <div className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft">
                 <div className="grid size-11 place-items-center rounded-xl bg-accent text-primary-dark"><MapPin className="size-5" /></div>
                 <div>
                   <p className="text-xs text-muted-foreground">Head Office</p>
-                  <p className="font-semibold text-primary-dark">Chennai, Tamil Nadu</p>
+                  <p className="font-semibold text-primary-dark">{COMPANY.address}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 rounded-2xl bg-primary-dark text-white p-4 shadow-soft">
+                <div className="grid size-11 place-items-center rounded-xl bg-primary"><Building2 className="size-5" /></div>
+                <div>
+                  <p className="text-xs text-white/60">Legal entity</p>
+                  <p className="font-semibold">{COMPANY.legalName}</p>
+                  <p className="text-xs text-white/60 mt-0.5">PAN {COMPANY.pan} · {COMPANY.domain}</p>
                 </div>
               </div>
             </div>
@@ -94,12 +117,14 @@ function Page() {
                 <textarea name="msg" rows={4} className="w-full rounded-xl border border-border bg-background px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/40" />
               </div>
             </div>
-            <button type="submit" className="w-full inline-flex justify-center items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.01] transition">
+            <button type="submit" className="w-full inline-flex justify-center items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.01] transition shine-on-hover">
               {sent ? "Sent — we'll be in touch!" : <>Send Request <Send className="size-4" /></>}
             </button>
           </motion.form>
         </div>
       </section>
+
+      <LicensesTrust />
 
       <section className="mx-auto max-w-4xl px-6 py-24">
         <div className="text-center">

@@ -1,0 +1,56 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F2E8"/>
+      <stop offset="1" stop-color="#EAF6E3"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 220) rotate(20) scale(680 430)">
+      <stop stop-color="#67B548" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#67B548" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1540 820) rotate(-15) scale(640 360)">
+      <stop stop-color="#214C1F" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#214C1F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow1)"/>
+  <rect width="1920" height="1080" fill="url(#glow2)"/>
+
+  <g opacity="0.35" stroke="#67B548" stroke-width="2">
+    <path d="M160 760C360 620 520 610 760 660C980 706 1180 690 1420 560C1570 480 1700 420 1820 360"/>
+    <path d="M120 860C360 760 610 742 860 780C1060 812 1290 770 1540 650C1670 590 1780 520 1880 440"/>
+  </g>
+
+  <g opacity="0.28" stroke="#214C1F" stroke-width="1.5" fill="none">
+    <circle cx="410" cy="430" r="84"/>
+    <circle cx="410" cy="430" r="132"/>
+    <circle cx="1480" cy="370" r="98"/>
+    <circle cx="1480" cy="370" r="156"/>
+  </g>
+
+  <g fill="#214C1F" opacity="0.42">
+    <circle cx="410" cy="430" r="8"/>
+    <circle cx="710" cy="620" r="6"/>
+    <circle cx="980" cy="700" r="7"/>
+    <circle cx="1250" cy="640" r="6"/>
+    <circle cx="1480" cy="370" r="8"/>
+    <circle cx="1660" cy="520" r="6"/>
+  </g>
+
+  <g opacity="0.16" stroke="#214C1F" stroke-width="1">
+    <path d="M0 180H1920"/>
+    <path d="M0 360H1920"/>
+    <path d="M0 540H1920"/>
+    <path d="M0 720H1920"/>
+    <path d="M0 900H1920"/>
+    <path d="M240 0V1080"/>
+    <path d="M480 0V1080"/>
+    <path d="M720 0V1080"/>
+    <path d="M960 0V1080"/>
+    <path d="M1200 0V1080"/>
+    <path d="M1440 0V1080"/>
+    <path d="M1680 0V1080"/>
+  </g>
+</svg>

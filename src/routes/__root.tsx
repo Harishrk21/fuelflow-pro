@@ -60,15 +60,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Call Diesel — Doorstep Diesel & Fuel Delivery Platform" },
+      { title: "Call Diesel — Highest Grade Fuel Delivery" },
       {
         name: "description",
         content:
-          "Order diesel, industrial oils & lubricants via WhatsApp, App or Web. Doorstep fuel delivery with live GPS tracking, IoT security and smart fuel management.",
+          "Jeyaveer Fuels / Call Diesel — doorstep diesel from authorised HP, IndianOil & Bharat Petroleum. Live GPS, IoT geo-fencing, ATF fuel management. Call 044-4311 4311.",
       },
-      { name: "author", content: "Call Diesel" },
-      { property: "og:title", content: "Call Diesel — Digital Fuel Delivery Platform" },
-      { property: "og:description", content: "WhatsApp-first diesel & industrial fuel delivery with IoT-enabled tracking and doorstep dispensing." },
+      { name: "author", content: "Jeyaveer Fuels Private Limited" },
+      { property: "og:title", content: "Call Diesel — Highest Grade Fuel Delivery" },
+      { property: "og:description", content: "Doorstep diesel delivery with IoT security, geo-fenced dispensing and authorised PSU fuel partners." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Call Diesel" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -76,7 +76,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "shortcut icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

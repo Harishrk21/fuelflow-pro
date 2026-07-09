@@ -1,21 +1,34 @@
 import { Link } from "@tanstack/react-router";
-import { Flame, Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
+import { COMPANY, FUEL_PARTNERS } from "@/lib/company";
+import brandLogo from "@/assets/calldiesel-logo-main.png";
 
 export function Footer() {
   return (
     <footer className="mt-24 bg-primary-dark text-white/80">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-2 font-display font-bold text-xl text-white">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary">
-              <Flame className="size-5" />
-            </span>
-            CallDiesel
-          </div>
+          <img
+            src={brandLogo}
+            alt="Call Diesel logo"
+            className="h-14 w-auto object-contain"
+          />
+          <p className="mt-1 text-xs text-primary font-medium">{COMPANY.tagline}®</p>
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            India's next-generation digital fuel delivery and fuel management
-            platform. Order via WhatsApp, App, or Web.
+            Doorstep diesel delivery with live GPS, IoT security and authorised
+            PSU fuel — powered by {COMPANY.legalName}.
           </p>
+          <div className="mt-5 flex flex-wrap gap-3 items-center">
+            {FUEL_PARTNERS.map((p) => (
+              <div
+                key={p.id}
+                className="grid size-11 place-items-center rounded-lg bg-white p-1.5"
+                title={p.name}
+              >
+                <img src={p.logo} alt={p.name} className="max-h-8 max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
           <div className="mt-6 flex gap-3">
             {[Instagram, Linkedin, Twitter, Facebook].map((Icon, i) => (
               <a
@@ -53,16 +66,30 @@ export function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Get in Touch</h4>
           <ul className="space-y-2 text-sm text-white/60">
-            <li>Chennai, Tamil Nadu, India</li>
-            <li>+91 99999 99999</li>
-            <li>hello@calldiesel.com</li>
+            <li className="font-medium text-white/80">{COMPANY.legalName}</li>
+            <li>{COMPANY.address}</li>
+            <li>
+              <a href={`tel:${COMPANY.phoneTel}`} className="hover:text-primary">
+                Call Us at {COMPANY.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${COMPANY.email}`} className="hover:text-primary">
+                {COMPANY.email}
+              </a>
+            </li>
+            <li>
+              <a href={COMPANY.website} className="hover:text-primary" target="_blank" rel="noreferrer">
+                {COMPANY.domain}
+              </a>
+            </li>
             <li>24×7 Support</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-white/50 gap-2">
-          <p>© {new Date().getFullYear()} Call Diesel. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {COMPANY.legalName}. {COMPANY.brand} — All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary">Privacy Policy</a>
             <a href="#" className="hover:text-primary">Terms of Service</a>
