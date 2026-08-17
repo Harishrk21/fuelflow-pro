@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { PageHero, BrochureFigure } from "@/components/site/PageParts";
+import { pageHead } from "@/lib/seo";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { VehicleSpecs } from "@/components/site/VehicleSpecs";
 import technologyHeroBg from "@/assets/technology-hero-updated.png";
@@ -14,15 +15,13 @@ import {
 
 export const Route = createFileRoute("/technology")({
   component: Page,
-  head: () => ({
-    meta: [
-      { title: "Technology — IoT, GPS & Smart Fuel Dispensing | Call Diesel" },
-      { name: "description", content: "Accurate GPS geo-fencing, IoT brake-interlock, mobile petrol pump tech and authorised dispensing from Call Diesel." },
-      { property: "og:title", content: "Technology — Call Diesel" },
-      { property: "og:url", content: "/technology" },
-    ],
-    links: [{ rel: "canonical", href: "/technology" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Technology — IoT, GPS & Smart Fuel Dispensing | Call Diesel",
+      description:
+        "Accurate GPS geo-fencing, IoT brake-interlock, mobile petrol pump tech and authorised dispensing from Call Diesel.",
+      path: "/technology",
+    }),
 });
 
 const techLayers = [

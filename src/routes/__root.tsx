@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 import { WhatsAppFab } from "../components/site/WhatsAppFab";
+import { OG_IMAGE, SITE_URL, localBusinessJsonLd } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -67,23 +68,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Jeyaveer Fuels / Call Diesel — doorstep diesel from authorised HP, IndianOil & Bharat Petroleum. Live GPS, IoT geo-fencing, ATF fuel management. Call 044-4311 4311.",
       },
       { name: "author", content: "Jeyaveer Fuels Private Limited" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Call Diesel — Highest Grade Fuel Delivery" },
       { property: "og:description", content: "Doorstep diesel delivery with IoT security, geo-fenced dispensing and authorised PSU fuel partners." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Call Diesel" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
       { name: "theme-color", content: "#67B548" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: SITE_URL },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "shortcut icon", href: "/favicon.png", type: "image/png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessJsonLd),
       },
     ],
   }),
@@ -95,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
       </head>

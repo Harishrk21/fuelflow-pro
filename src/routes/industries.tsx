@@ -10,19 +10,18 @@ import {
 } from "lucide-react";
 import technologyHeroBg from "@/assets/technology-hero-updated.png";
 import { COMPANY } from "@/lib/company";
+import { pageHead } from "@/lib/seo";
 import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/industries")({
   component: Page,
-  head: () => ({
-    meta: [
-      { title: "Industries We Serve — Call Diesel" },
-      { name: "description", content: "Doorstep diesel for construction, mining, factories, hospitals, warehouses, ports, agriculture, telecom, data centres and more." },
-      { property: "og:title", content: "Industries — Call Diesel" },
-      { property: "og:url", content: "/industries" },
-    ],
-    links: [{ rel: "canonical", href: "/industries" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Industries We Serve — Call Diesel",
+      description:
+        "Doorstep diesel for construction, mining, factories, hospitals, warehouses, ports, agriculture, telecom, data centres and more.",
+      path: "/industries",
+    }),
 });
 
 const industries = [

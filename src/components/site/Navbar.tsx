@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { COMPANY } from "@/lib/company";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { BrandWordmark } from "@/components/site/BrandLogo";
 
 const links = [
   { to: "/", label: "Home" },
@@ -38,12 +39,7 @@ export function Navbar() {
           }`}
         >
           <Link to="/" className="flex items-center gap-2.5 min-w-0">
-            <img
-              src="/favicon.png"
-              alt=""
-              aria-hidden
-              className="size-10 sm:size-12 shrink-0 rounded-lg object-contain"
-            />
+            <BrandWordmark className="h-10 sm:h-12 w-auto object-contain shrink-0" />
             <div className="min-w-0 leading-tight">
               <span className="block font-display font-bold text-base sm:text-lg text-primary-dark tracking-tight">
                 Call<span className="text-primary">Diesel</span>

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHero, FeatureGrid } from "@/components/site/PageParts";
+import { pageHead } from "@/lib/seo";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { VehicleSpecs } from "@/components/site/VehicleSpecs";
@@ -10,15 +11,13 @@ import milestoneFlagOff from "@/assets/milestone-flag-off.png";
 
 export const Route = createFileRoute("/services")({
   component: Page,
-  head: () => ({
-    meta: [
-      { title: "Fuel Delivery Services — Call Diesel" },
-      { name: "description", content: "Doorstep diesel, industrial oils, fleet fuel management, generator diesel, bulk delivery, scheduled & emergency fuel service." },
-      { property: "og:title", content: "Fuel Delivery Services — Call Diesel" },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Fuel Delivery Services — Call Diesel",
+      description:
+        "Doorstep diesel, industrial oils, fleet fuel management, generator diesel, bulk delivery, scheduled & emergency fuel service.",
+      path: "/services",
+    }),
 });
 
 const services = [

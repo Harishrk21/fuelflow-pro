@@ -1,24 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Phone, Mail, MapPin, Send, Building2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, Building2 } from "lucide-react";
 import { COMPANY } from "@/lib/company";
+import { pageHead } from "@/lib/seo";
 import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 import { LicensesTrust } from "@/components/site/LicensesTrust";
+import { LeadForm } from "@/components/site/LeadForm";
 import operationsTruck from "@/assets/operations-delivery-truck.png";
-
-export const Route = createFileRoute("/contact")({
-  component: Page,
-  head: () => ({
-    meta: [
-      { title: "Contact & Get a Quote — Call Diesel" },
-      { name: "description", content: "Contact Jeyaveer Fuels / Call Diesel — Chennai. Call 044-4311 4311 or email calldiesel@yahoo.com for doorstep diesel delivery." },
-      { property: "og:title", content: "Contact — Call Diesel" },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-});
 
 const faqs = [
   { q: "Can I order through WhatsApp?", a: "Yes. Just message our WhatsApp number and follow the guided prompts." },
@@ -32,8 +19,36 @@ const faqs = [
   { q: "Whose fuel do you deliver?", a: "Authorised fuel from Hindustan Petroleum (HP), IndianOil and Bharat Petroleum." },
 ];
 
+export const Route = createFileRoute("/contact")({
+  component: Page,
+  head: () => {
+    const base = pageHead({
+      title: "Contact & Get a Quote — Call Diesel",
+      description:
+        "Contact Jeyaveer Fuels / Call Diesel — Chennai. Call 044-4311 4311 or email jeyaveerfuels@gmail.com for doorstep diesel delivery.",
+      path: "/contact",
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+      ],
+    };
+  },
+});
+
 function Page() {
-  const [sent, setSent] = useState(false);
   return (
     <div>
       <section className="relative overflow-hidden bg-gradient-hero">
@@ -97,30 +112,7 @@ function Page() {
             </div>
           </div>
 
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="rounded-3xl bg-card border border-border p-8 shadow-elegant space-y-4"
-          >
-            <h2 className="text-2xl font-display font-bold text-primary-dark">Get a Quote</h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Company" name="company" />
-              <Field label="Name" name="name" required />
-              <Field label="Phone" name="phone" type="tel" required />
-              <Field label="Email" name="email" type="email" />
-              <Field label="Fuel Type" name="fuel" placeholder="Diesel / Oil" />
-              <Field label="Quantity (L)" name="qty" type="number" />
-              <div className="sm:col-span-2"><Field label="Delivery Location" name="loc" /></div>
-              <div className="sm:col-span-2">
-                <label className="block text-sm font-medium text-primary-dark mb-1.5">Message</label>
-                <textarea name="msg" rows={4} className="w-full rounded-xl border border-border bg-background px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/40" />
-              </div>
-            </div>
-            <button type="submit" className="w-full inline-flex justify-center items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.01] transition shine-on-hover">
-              {sent ? "Sent — we'll be in touch!" : <>Send Request <Send className="size-4" /></>}
-            </button>
-          </motion.form>
+          <LeadForm />
         </div>
       </section>
 
@@ -143,16 +135,6 @@ function Page() {
           ))}
         </div>
       </section>
-    </div>
-  );
-}
-
-function Field({ label, name, type = "text", required, placeholder }: { label: string; name: string; type?: string; required?: boolean; placeholder?: string }) {
-  return (
-    <div>
-      <label className="block text-sm font-medium text-primary-dark mb-1.5">{label}{required && " *"}</label>
-      <input name={name} type={type} required={required} placeholder={placeholder}
-        className="w-full rounded-xl border border-border bg-background px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/40" />
     </div>
   );
 }

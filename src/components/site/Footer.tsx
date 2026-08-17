@@ -1,18 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
 import { COMPANY, FUEL_PARTNERS } from "@/lib/company";
-import brandLogo from "@/assets/calldiesel-logo-main.png";
+import { BrandWordmark } from "@/components/site/BrandLogo";
 
 export function Footer() {
   return (
     <footer className="mt-24 bg-primary-dark text-white/80">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img
-            src={brandLogo}
-            alt="Call Diesel logo"
-            className="h-14 w-auto object-contain"
-          />
+          <BrandWordmark className="h-14 w-auto object-contain" />
           <p className="mt-1 text-xs text-primary font-medium">{COMPANY.tagline}®</p>
           <p className="mt-4 text-sm leading-relaxed text-white/60">
             Doorstep diesel delivery with live GPS, IoT security and authorised
@@ -27,18 +22,6 @@ export function Footer() {
               >
                 <img src={p.logo} alt={p.name} className="max-h-8 max-w-full object-contain" />
               </div>
-            ))}
-          </div>
-          <div className="mt-6 flex gap-3">
-            {[Instagram, Linkedin, Twitter, Facebook].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="grid size-9 place-items-center rounded-lg bg-white/10 hover:bg-primary transition"
-                aria-label="social"
-              >
-                <Icon className="size-4" />
-              </a>
             ))}
           </div>
         </div>
@@ -91,8 +74,8 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-white/50 gap-2">
           <p>© {new Date().getFullYear()} {COMPANY.legalName}. {COMPANY.brand} — All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary">Privacy Policy</a>
-            <a href="#" className="hover:text-primary">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary">Terms of Service</Link>
           </div>
         </div>
       </div>

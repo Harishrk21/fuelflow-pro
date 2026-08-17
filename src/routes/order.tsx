@@ -5,6 +5,7 @@ import { AppDownload } from "@/components/site/AppDownload";
 import { WhatsAppDemo } from "@/components/site/WhatsAppDemo";
 import { WhatsAppIcon, WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 import { COMPANY } from "@/lib/company";
+import { pageHead } from "@/lib/seo";
 import orderHeroBg from "@/assets/mobile-app-hero-tracking.png";
 import brochureAppPlatform from "@/assets/brochure-mobile-app-platform.png";
 import {
@@ -14,19 +15,13 @@ import {
 
 export const Route = createFileRoute("/order")({
   component: Page,
-  head: () => ({
-    meta: [
-      { title: "Order Fuel — WhatsApp & App | Call Diesel" },
-      {
-        name: "description",
-        content:
-          "Order diesel on WhatsApp in 60 seconds or use the Call Diesel app. Live tracking, digital invoices, and authorised HP / IOCL / BPCL fuel delivery.",
-      },
-      { property: "og:title", content: "Order Fuel — Call Diesel" },
-      { property: "og:url", content: "/order" },
-    ],
-    links: [{ rel: "canonical", href: "/order" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Order Fuel — WhatsApp & App | Call Diesel",
+      description:
+        "Order diesel on WhatsApp in 60 seconds or use the Call Diesel app. Live tracking, digital invoices, and authorised HP / IOCL / BPCL fuel delivery.",
+      path: "/order",
+    }),
 });
 
 const whatsappSteps = [

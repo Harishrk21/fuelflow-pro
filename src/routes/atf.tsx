@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHero, BrochureFigure } from "@/components/site/PageParts";
+import { pageHead } from "@/lib/seo";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { TiltCard } from "@/components/site/TiltCard";
 import atfHeroBg from "@/assets/atf-hero-dashboard.png";
@@ -13,15 +14,13 @@ import {
 
 export const Route = createFileRoute("/atf")({
   component: Page,
-  head: () => ({
-    meta: [
-      { title: "ATF — Any Time Fuel Management Device | Call Diesel" },
-      { name: "description", content: "ATF: stationery diesel data management device with live fuel levels, sub-asset consumption, authorised dispensing and savings tracking." },
-      { property: "og:title", content: "ATF — Any Time Fuel" },
-      { property: "og:url", content: "/atf" },
-    ],
-    links: [{ rel: "canonical", href: "/atf" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "ATF — Any Time Fuel Management Device | Call Diesel",
+      description:
+        "ATF: stationery diesel data management device with live fuel levels, sub-asset consumption, authorised dispensing and savings tracking.",
+      path: "/atf",
+    }),
 });
 
 const cards = [

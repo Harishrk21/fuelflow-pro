@@ -9,7 +9,6 @@ import {
   Wallet, Timer, Package, FileText, History, Star,
 } from "lucide-react";
 import heroImg from "@/assets/hero-illustration.png";
-import brandLogo from "@/assets/calldiesel-logo-main.png";
 import procurementComparison from "@/assets/procurement-system-comparison.png";
 import { BrochureFigure } from "@/components/site/PageParts";
 import { PartnerLogos } from "@/components/site/PartnerLogos";
@@ -17,24 +16,20 @@ import { VehicleSpecs } from "@/components/site/VehicleSpecs";
 import { LicensesTrust } from "@/components/site/LicensesTrust";
 import { AppDownload } from "@/components/site/AppDownload";
 import { WhatsAppDemo } from "@/components/site/WhatsAppDemo";
+import { BrandWordmark } from "@/components/site/BrandLogo";
 import { COMPANY } from "@/lib/company";
+import { pageHead } from "@/lib/seo";
 import { WhatsAppIcon, WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
-  head: () => ({
-    meta: [
-      { title: "Call Diesel — Doorstep Diesel Delivery via WhatsApp & App" },
-      {
-        name: "description",
-        content:
-          "India's digital fuel delivery platform. Order diesel, industrial oils & lubricants via WhatsApp. Live GPS tracking, IoT security, geo-fenced doorstep delivery.",
-      },
-      { property: "og:title", content: "Call Diesel — The Future of Fuel Distribution" },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Call Diesel — Doorstep Diesel Delivery via WhatsApp & App",
+      description:
+        "India's digital fuel delivery platform. Order diesel, industrial oils & lubricants via WhatsApp. Live GPS tracking, IoT security, geo-fenced doorstep delivery.",
+      path: "/",
+    }),
 });
 
 // ----- Counter -----
@@ -79,11 +74,7 @@ function Hero() {
             <Sparkles className="size-3.5 text-primary" />
             {COMPANY.tagline}® · Doorstep Diesel Delivery
           </div>
-          <img
-            src={brandLogo}
-            alt="Call Diesel logo"
-            className="mt-5 h-16 md:h-20 w-auto object-contain"
-          />
+          <BrandWordmark className="mt-5 h-16 md:h-20 w-auto object-contain" />
           <h1 className="mt-3 text-4xl sm:text-5xl md:text-7xl font-display font-bold leading-[1.05] text-primary-dark">
             The Future of{" "}
             <span className="relative inline-block">

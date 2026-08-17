@@ -4,7 +4,7 @@ import {
   CheckCircle2, CircleDollarSign, Fuel, LocateFixed, MapPin,
   PackageCheck, ReceiptText, Send, Truck,
 } from "lucide-react";
-import brandLogo from "@/assets/calldiesel-logo-main.png";
+import { BrandWordmark } from "@/components/site/BrandLogo";
 import { COMPANY } from "@/lib/company";
 import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
@@ -87,7 +87,7 @@ export function WhatsAppDemo({
     <div className="mx-auto w-full max-w-[280px] sm:max-w-[320px] rounded-[2.35rem] bg-primary-dark p-2.5 shadow-elegant animate-depth-pulse">
       <div className="flex h-[520px] sm:h-[560px] flex-col rounded-[2rem] overflow-hidden bg-[#E5DDD5] border border-white/30">
         <div className="shrink-0 bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
-          <img src={brandLogo} alt="Call Diesel" className="h-8 w-auto object-contain mix-blend-screen" />
+          <BrandWordmark className="h-8 w-auto object-contain mix-blend-screen" />
           <div>
             <p className="text-sm font-semibold">Call Diesel Assistant</p>
             <p className="text-[10px] text-white/70">automated • 24/7</p>
