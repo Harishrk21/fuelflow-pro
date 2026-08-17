@@ -9,6 +9,7 @@ module.exports = {
       exec_mode: "fork",
       autorestart: true,
       max_memory_restart: "512M",
+      kill_timeout: 5000,
       env: {
         NODE_ENV: "production",
         HOST: "127.0.0.1",

@@ -36,13 +36,7 @@ sudo ln -sfn /etc/nginx/sites-available/calldiesel /etc/nginx/sites-enabled/call
 sudo nginx -t
 sudo systemctl reload nginx
 
-echo "==> PM2 startup (safe to re-run)"
-STARTUP_CMD="$(pm2 startup systemd -u "$(whoami)" --hp "${HOME}" | tail -n 1 || true)"
-if [[ "${STARTUP_CMD}" == sudo* ]]; then
-  eval "${STARTUP_CMD}"
-fi
-
-echo "==> Done. Call Diesel will listen on 127.0.0.1:3011 behind Nginx."
-echo "Point DNS A records for calldiesel.in and www.calldiesel.in to this instance,"
-echo "then after the first GitHub deploy:"
+echo "==> Done. Call Diesel uses 127.0.0.1:3011 only."
+echo "Other PM2 apps and Nginx sites were not restarted or removed."
+echo "After the first GitHub deploy and DNS:"
 echo "  sudo certbot --nginx -d www.calldiesel.in -d calldiesel.in"
