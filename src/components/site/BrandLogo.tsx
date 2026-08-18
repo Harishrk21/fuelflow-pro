@@ -1,47 +1,26 @@
 import brandMark from "@/assets/calldiesel-mark.png";
 import brandLogo from "@/assets/calldiesel-logo-main.png";
+import navbarLogo from "@/assets/calldiesel-navbar-logo.png";
 import { COMPANY } from "@/lib/company";
 
-const brandTextSizes = {
-  nav: {
-    name: "text-[15px] sm:text-[17px] leading-none",
-    tagline: "text-[8px] sm:text-[9px] leading-tight mt-0.5",
-  },
-  md: {
-    name: "text-lg sm:text-xl leading-none",
-    tagline: "text-[10px] sm:text-[11px] leading-tight mt-0.5",
-  },
-  lg: {
-    name: "text-2xl sm:text-3xl leading-none",
-    tagline: "text-xs leading-tight mt-1",
-  },
-} as const;
-
-/** Text wordmark styled to match the Call Diesel logo (Fredoka, single-line CALLDIESEL). */
-export function BrandWordmarkText({
-  className = "",
-  showTagline = true,
-  size = "nav",
+export function NavbarLogo({
+  className = "h-14 sm:h-16 lg:h-[4.5rem] w-auto",
 }: {
   className?: string;
-  showTagline?: boolean;
-  size?: keyof typeof brandTextSizes;
 }) {
-  const s = brandTextSizes[size];
   return (
-    <div className={`min-w-0 select-none ${className}`}>
-      <p
-        className={`font-brand font-bold uppercase text-primary tracking-[-0.04em] whitespace-nowrap ${s.name}`}
-        aria-label="Call Diesel"
-      >
-        CallDiesel
-      </p>
-      {showTagline && (
-        <p className={`hidden sm:block font-brand font-medium text-primary/75 tracking-wide truncate ${s.tagline}`}>
-          {COMPANY.tagline}
-        </p>
-      )}
-    </div>
+    <span className="flex flex-col items-center shrink-0 leading-none">
+      <img
+        src={navbarLogo}
+        alt="Call Diesel"
+        width={1024}
+        height={474}
+        className={`object-contain ${className}`}
+      />
+      <span className="mt-1 font-tagline font-medium text-[11px] sm:text-xs lg:text-[13px] text-primary-dark tracking-wide whitespace-nowrap leading-none">
+        {COMPANY.tagline}
+      </span>
+    </span>
   );
 }
 
