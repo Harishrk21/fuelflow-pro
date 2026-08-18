@@ -4,14 +4,14 @@ import { BrandWordmark } from "@/components/site/BrandLogo";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-primary-dark text-white/80">
-      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
-        <div className="md:col-span-1">
-          <BrandWordmark className="h-14 w-auto object-contain" />
+    <footer className="mt-16 sm:mt-24 bg-primary-dark text-white/80">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="sm:col-span-2 lg:col-span-1">
+          <BrandWordmark className="h-12 sm:h-14 w-auto object-contain max-w-full" />
           <p className="mt-1 text-xs text-primary font-medium">{COMPANY.tagline}®</p>
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            Doorstep diesel delivery with live GPS, IoT security and authorised
-            PSU fuel — powered by {COMPANY.legalName}.
+            Call Diesel — doorstep diesel delivery in Chennai with live GPS, IoT security and authorised
+            HP · IOCL · BPCL fuel. {COMPANY.legalName}.
           </p>
           <div className="mt-5 flex flex-wrap gap-3 items-center">
             {FUEL_PARTNERS.map((p) => (
@@ -57,7 +57,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href={`mailto:${COMPANY.email}`} className="hover:text-primary">
+              <a href={`mailto:${COMPANY.email}`} className="hover:text-primary break-all">
                 {COMPANY.email}
               </a>
             </li>
@@ -71,8 +71,8 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-white/50 gap-2">
-          <p>© {new Date().getFullYear()} {COMPANY.legalName}. {COMPANY.brand} — All rights reserved.</p>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-white/50 gap-3 text-center md:text-left">
+          <p className="max-w-prose">© {new Date().getFullYear()} {COMPANY.legalName}. {COMPANY.brand} — All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary">Terms of Service</Link>

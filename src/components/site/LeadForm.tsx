@@ -70,7 +70,7 @@ export function LeadForm({
       action={FORMSUBMIT_ACTION}
       method="POST"
       onSubmit={onSubmit}
-      className="rounded-3xl bg-card border border-border p-8 shadow-elegant space-y-4"
+      className="rounded-3xl bg-card border border-border p-5 sm:p-8 shadow-elegant space-y-4 min-w-0"
     >
       <h2 className="text-2xl font-display font-bold text-primary-dark">Get a Quote</h2>
       <p className="text-sm text-foreground/60">

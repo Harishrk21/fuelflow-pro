@@ -14,7 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 import { WhatsAppFab } from "../components/site/WhatsAppFab";
-import { OG_IMAGE, SITE_URL, localBusinessJsonLd } from "../lib/seo";
+import { OG_IMAGE, localBusinessJsonLd } from "../lib/seo";
+import { COMPANY } from "../lib/company";
 
 function NotFoundComponent() {
   return (
@@ -61,28 +62,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Call Diesel — Highest Grade Fuel Delivery" },
-      {
-        name: "description",
-        content:
-          "Jeyaveer Fuels / Call Diesel — doorstep diesel from authorised HP, IndianOil & Bharat Petroleum. Live GPS, IoT geo-fencing, ATF fuel management. Call 044-4311 4311.",
-      },
-      { name: "author", content: "Jeyaveer Fuels Private Limited" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Call Diesel — Highest Grade Fuel Delivery" },
-      { property: "og:description", content: "Doorstep diesel delivery with IoT security, geo-fenced dispensing and authorised PSU fuel partners." },
-      { property: "og:type", content: "website" },
+      { name: "author", content: COMPANY.legalName },
       { property: "og:site_name", content: "Call Diesel" },
-      { property: "og:url", content: SITE_URL },
-      { property: "og:image", content: OG_IMAGE },
       { property: "og:locale", content: "en_IN" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
       { name: "theme-color", content: "#67B548" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: SITE_URL },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "shortcut icon", href: "/favicon.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
@@ -90,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap",
       },
     ],
     scripts: [
@@ -126,7 +115,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <div className="min-h-dvh flex flex-col">
         <Navbar />
-        <main className="flex-1 pt-20">
+        <main className="flex-1 pt-16 sm:pt-20">
           <Outlet />
         </main>
         <Footer />

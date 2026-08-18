@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { pageHead } from "@/lib/seo";
+import { noindexHead } from "@/lib/seo";
 import { COMPANY } from "@/lib/company";
 
 export const Route = createFileRoute("/privacy")({
   component: Page,
   head: () =>
-    pageHead({
+    noindexHead({
       title: "Privacy Policy — Call Diesel",
       description: "How Jeyaveer Fuels Private Limited / Call Diesel collects and uses enquiry and delivery information.",
       path: "/privacy",
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/privacy")({
 
 function Page() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <article className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16 md:py-24">
       <p className="text-primary font-semibold text-sm tracking-wider uppercase">Legal</p>
       <h1 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">Privacy Policy</h1>
       <p className="mt-4 text-sm text-foreground/55">Last updated: 17 August 2026</p>

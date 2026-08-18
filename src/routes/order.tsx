@@ -5,7 +5,7 @@ import { AppDownload } from "@/components/site/AppDownload";
 import { WhatsAppDemo } from "@/components/site/WhatsAppDemo";
 import { WhatsAppIcon, WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 import { COMPANY } from "@/lib/company";
-import { pageHead } from "@/lib/seo";
+import { pageHead, crumbs } from "@/lib/seo";
 import orderHeroBg from "@/assets/mobile-app-hero-tracking.png";
 import brochureAppPlatform from "@/assets/brochure-mobile-app-platform.png";
 import {
@@ -17,10 +17,11 @@ export const Route = createFileRoute("/order")({
   component: Page,
   head: () =>
     pageHead({
-      title: "Order Fuel — WhatsApp & App | Call Diesel",
+      title: "Order Doorstep Diesel — WhatsApp & App | Call Diesel Chennai",
       description:
-        "Order diesel on WhatsApp in 60 seconds or use the Call Diesel app. Live tracking, digital invoices, and authorised HP / IOCL / BPCL fuel delivery.",
+        "Order doorstep diesel from Call Diesel on WhatsApp in 60 seconds or via the app. Live GPS tracking, digital invoices, and authorised HP / IOCL / BPCL fuel in Chennai.",
       path: "/order",
+      breadcrumbs: [...crumbs.order],
     }),
 });
 
@@ -60,16 +61,16 @@ function Page() {
   return (
     <div>
       <PageHero
-        eyebrow="Order Fuel"
-        title="Order on WhatsApp in 60 seconds."
-        subtitle="The fastest way to get diesel delivered — just message us on WhatsApp. Share your location, choose quantity, and we handle the rest. Prefer an app? That works too."
+        eyebrow="Order Call Diesel"
+        title="Order doorstep diesel on WhatsApp in 60 seconds"
+        subtitle="The fastest way to get Call Diesel delivered in Chennai — message us on WhatsApp, share your location, choose quantity, and we handle the rest."
         backgroundImage={orderHeroBg}
         backgroundImageClassName="absolute inset-0 h-full w-full object-cover object-center"
         subtitleClassName="text-primary-dark/90 font-medium"
       />
 
       <section className="bg-background border-b border-border/60">
-        <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-14 pb-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-10 md:pt-14 pb-10">
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           <a
             href={COMPANY.whatsappUrl}
@@ -112,7 +113,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-16">
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-primary font-semibold text-sm tracking-wider uppercase">How WhatsApp ordering works</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold text-primary-dark">
@@ -170,7 +171,7 @@ function Page() {
       </section>
 
       <section className="bg-gradient-hero border-y border-border/60">
-        <div className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-12 md:pt-16">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <p className="text-primary font-semibold text-sm tracking-wider uppercase">See it in action</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold text-primary-dark">
@@ -184,7 +185,7 @@ function Page() {
         <WhatsAppDemo showHeading={false} className="!pt-0 !pb-12 md:!pb-16" />
       </section>
 
-      <section id="app" className="mx-auto max-w-7xl px-6 py-16 md:py-20 scroll-mt-24">
+      <section id="app" className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-20 scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="text-primary font-semibold text-sm tracking-wider uppercase">Call Diesel App</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold text-primary-dark">
@@ -234,7 +235,7 @@ function Page() {
       <FeatureGrid items={appFeats} cols={3} />
       <AppDownload />
 
-      <section className="mx-auto max-w-7xl px-6 pb-20">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-20">
         <div className="rounded-3xl bg-primary-dark p-8 md:p-10 text-center">
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
             Ready to order diesel?

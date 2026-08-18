@@ -10,17 +10,18 @@ import {
 } from "lucide-react";
 import technologyHeroBg from "@/assets/technology-hero-updated.png";
 import { COMPANY } from "@/lib/company";
-import { pageHead } from "@/lib/seo";
+import { pageHead, crumbs } from "@/lib/seo";
 import { WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/industries")({
   component: Page,
   head: () =>
     pageHead({
-      title: "Industries We Serve — Call Diesel",
+      title: "Industries — Doorstep Diesel for Construction, Factories & More | Call Diesel",
       description:
-        "Doorstep diesel for construction, mining, factories, hospitals, warehouses, ports, agriculture, telecom, data centres and more.",
+        "Call Diesel doorstep diesel for construction, mining, factories, hospitals, warehouses, ports, agriculture, telecom, and data centres across Chennai and Tamil Nadu.",
       path: "/industries",
+      breadcrumbs: [...crumbs.industries],
     }),
 });
 
@@ -158,7 +159,7 @@ function IndustryExplorer() {
   const industry = industries[active];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Sectors we serve</p>
         <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">
@@ -227,7 +228,7 @@ function IndustryExplorer() {
 
 function IndustryHighlights() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-16 md:pb-24">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-16 md:pb-24">
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
         {industries.map((item, i) => (
           <motion.div
@@ -256,7 +257,7 @@ function IndustryHighlights() {
 
 function SharedValue() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-20 md:pb-28">
       <div className="rounded-3xl bg-primary-dark text-white p-8 md:p-12 shadow-elegant relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_30%,#67B548,transparent_50%)]" />
         <div className="relative grid lg:grid-cols-2 gap-10 items-center">
@@ -314,9 +315,9 @@ function Page() {
   return (
     <div>
       <PageHero
-        eyebrow="Industries"
-        title="Powering the industries that power India."
-        subtitle="From construction yards to data centres — authorised doorstep diesel with GPS tracking, IoT security, and digital records for every sector."
+        eyebrow="Call Diesel Industries"
+        title="Doorstep diesel for every industry in Chennai"
+        subtitle="From construction yards to data centres — Call Diesel delivers authorised doorstep diesel with GPS tracking, IoT security, and digital records for every sector."
         backgroundImage={technologyHeroBg}
         subtitleClassName="text-primary-dark/95 font-medium"
         cta={{ to: "/contact", label: "Talk to Our Team" }}

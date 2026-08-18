@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHero, FeatureGrid } from "@/components/site/PageParts";
-import { pageHead } from "@/lib/seo";
+import { pageHead, crumbs } from "@/lib/seo";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { VehicleSpecs } from "@/components/site/VehicleSpecs";
@@ -13,10 +13,11 @@ export const Route = createFileRoute("/services")({
   component: Page,
   head: () =>
     pageHead({
-      title: "Fuel Delivery Services — Call Diesel",
+      title: "Doorstep Diesel Delivery Services in Chennai | Call Diesel",
       description:
-        "Doorstep diesel, industrial oils, fleet fuel management, generator diesel, bulk delivery, scheduled & emergency fuel service.",
+        "Call Diesel doorstep diesel delivery, industrial oils, generator fuel, fleet management, bulk & emergency diesel supply across Chennai and Tamil Nadu.",
       path: "/services",
+      breadcrumbs: [...crumbs.services],
     }),
 });
 
@@ -75,16 +76,16 @@ function Page() {
   return (
     <div>
       <PageHero
-        eyebrow="Services"
-        title="Every fuel need. One trusted partner."
-        subtitle="From single generators to enterprise fleets, we deliver authorised HP / IOCL / BPCL fuel — and the technology to manage it."
+        eyebrow="Call Diesel Services"
+        title="Doorstep diesel delivery & fuel services in Chennai"
+        subtitle="From single generators to enterprise fleets, Call Diesel delivers authorised HP / IOCL / BPCL fuel — and the technology to manage it."
         cta={{ to: "/contact", label: "Get a Quote" }}
         backgroundImageClassName="absolute inset-0 h-full w-full object-cover object-[center_35%]"
         backgroundImage={operationsTruck}
       />
       <WhatsAppMarketingStrip />
       <FeatureGrid items={services} />
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20 md:py-24">
         <div className="rounded-3xl border border-border bg-card p-6 md:p-10 shadow-soft">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
             <motion.div

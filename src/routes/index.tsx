@@ -18,17 +18,23 @@ import { AppDownload } from "@/components/site/AppDownload";
 import { WhatsAppDemo } from "@/components/site/WhatsAppDemo";
 import { BrandWordmark } from "@/components/site/BrandLogo";
 import { COMPANY } from "@/lib/company";
-import { pageHead } from "@/lib/seo";
+import { pageHead, faqJsonLd, HOME_FAQS } from "@/lib/seo";
 import { WhatsAppIcon, WhatsAppIconBadge } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
   head: () =>
     pageHead({
-      title: "Call Diesel — Doorstep Diesel Delivery via WhatsApp & App",
+      title: "Call Diesel — Doorstep Diesel Delivery in Chennai | WhatsApp & App",
       description:
-        "India's digital fuel delivery platform. Order diesel, industrial oils & lubricants via WhatsApp. Live GPS tracking, IoT security, geo-fenced doorstep delivery.",
+        "Call Diesel delivers doorstep diesel in Chennai — authorised HP, IOCL & BPCL fuel with live GPS tracking, IoT security, and WhatsApp ordering. Call 044-4311 4311.",
       path: "/",
+      extraScripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(faqJsonLd([...HOME_FAQS])),
+        },
+      ],
     }),
 });
 
@@ -75,19 +81,17 @@ function Hero() {
             {COMPANY.tagline}® · Doorstep Diesel Delivery
           </div>
           <BrandWordmark className="mt-5 h-16 md:h-20 w-auto object-contain" />
-          <h1 className="mt-3 text-4xl sm:text-5xl md:text-7xl font-display font-bold leading-[1.05] text-primary-dark">
-            The Future of{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">Fuel Distribution</span>
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 10">
-                <path d="M0 5 Q 100 -5 200 5" stroke="#67B548" strokeWidth="2" fill="none" strokeLinecap="round" />
-              </svg>
-            </span>{" "}
-            is Here!
+          <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] text-primary-dark text-balance">
+            Doorstep diesel delivery in{" "}
+            <span className="text-primary">Chennai</span>
+            {" "}— straight to your site
           </h1>
-          <p className="mt-6 text-lg text-foreground/70 max-w-xl leading-relaxed">
-            Order on app or WhatsApp. Authorized HP · IOCL · BPCL fuel — live-tracked,
-            IoT-secured, and delivered to your doorstep.
+          <p className="mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl font-display font-semibold text-primary-dark/90 text-pretty">
+            Call Diesel — authorised fuel on call, delivered to your doorstep
+          </p>
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-foreground/70 max-w-xl leading-relaxed text-pretty">
+            Order on the Call Diesel app or WhatsApp. Authorised HP · IOCL · BPCL diesel —
+            live-tracked, IoT-secured, and delivered directly to your site or generator.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/order" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:scale-[1.02] transition shine-on-hover">
@@ -112,7 +116,16 @@ function Hero() {
         <motion.div initial={{ opacity: 0, scale: 0.9, rotateY: 12 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-5 relative scene-3d">
           <div className="absolute -inset-6 rounded-full bg-primary/15 blur-3xl animate-orb" />
           <div className="relative mx-auto aspect-square max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none animate-float">
-            <img src={heroImg} alt="Fuel delivery truck with WhatsApp ordering and GPS tracking" width={1200} height={1200} className="w-full h-full object-contain drop-shadow-2xl" />
+            <img
+              src={heroImg}
+              alt="Call Diesel doorstep diesel delivery truck with WhatsApp ordering and GPS tracking"
+              width={1200}
+              height={1200}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-contain drop-shadow-2xl"
+            />
           </div>
 
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 lg:hidden">
@@ -151,7 +164,7 @@ function Hero() {
 
       {/* Trust logo strip */}
       <div className="relative border-t border-border/60 bg-white/40 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-6 py-6 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 overflow-hidden">
           <div className="flex gap-14 animate-marquee whitespace-nowrap text-primary-dark/60 font-display font-semibold text-lg">
             {[...Array(2)].flatMap((_, k) => [
               "L&T Construction", "Ashok Leyland", "TATA Projects", "Mahindra Logistics",
@@ -214,7 +227,7 @@ function About() {
       <div className="grid lg:grid-cols-2 gap-14 items-center">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
           <p className="text-primary font-semibold text-sm tracking-wider uppercase">About Call Diesel</p>
-          <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark leading-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark leading-tight text-balance">
             A smart digital fuel platform — not just another supplier.
           </h2>
           <p className="mt-6 text-foreground/70 leading-relaxed">
@@ -271,7 +284,7 @@ function ProblemSolution() {
     <Section>
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Problem & Solution</p>
-        <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark text-balance">
           Fuel procurement is broken. We fixed it.
         </h2>
         <p className="mt-4 text-foreground/65">
@@ -465,7 +478,7 @@ function ServicesPreview() {
       <div className="flex items-end justify-between flex-wrap gap-4">
         <div>
           <p className="text-primary font-semibold text-sm tracking-wider uppercase">Services</p>
-          <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">Every fuel need. One platform.</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark text-balance">Every fuel need. One platform.</h2>
         </div>
         <Link to="/services" className="text-primary-dark font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
           View all <ArrowRight className="size-4" />
@@ -510,7 +523,7 @@ function Industries() {
     <Section>
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Industries</p>
-        <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">Trusted across sectors.</h2>
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark text-balance">Trusted across sectors.</h2>
         <p className="mt-3 text-sm text-foreground/65">
           We serve multiple sectors. Here are the most active ones.
         </p>
@@ -548,7 +561,7 @@ function WhyUs() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <p className="text-primary font-semibold text-sm tracking-wider uppercase">Why choose us</p>
-            <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark leading-tight">
+            <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark leading-tight text-balance">
               Enterprise-grade fuel logistics, done right.
             </h2>
             <p className="mt-6 text-foreground/70">
@@ -590,7 +603,7 @@ function Testimonials() {
     <Section>
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Testimonials</p>
-        <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">Loved by operations teams.</h2>
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark text-balance">Loved by operations teams.</h2>
       </div>
 
       <div className="mt-12 overflow-hidden">
@@ -631,7 +644,7 @@ function CTA() {
         <div className="absolute -top-24 -left-24 size-72 rounded-full bg-white/15 blur-3xl" />
         <div className="absolute -bottom-24 -right-24 size-72 rounded-full bg-primary-dark/40 blur-3xl" />
         <div className="relative">
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground max-w-3xl mx-auto leading-tight text-balance">
             Ready to modernise your fuel operations?
           </h2>
           <p className="mt-4 text-primary-foreground/80 max-w-xl mx-auto">
@@ -662,7 +675,7 @@ function WhyDoorstep() {
     <Section>
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Why choose doorstep diesel</p>
-        <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark text-balance">
           An innovation in your service
         </h2>
         <p className="mt-4 text-foreground/70">
@@ -691,6 +704,33 @@ function WhyDoorstep() {
   );
 }
 
+function HomeFAQ() {
+  return (
+    <Section className="bg-accent/20">
+      <div className="text-center max-w-2xl mx-auto">
+        <p className="text-primary font-semibold text-sm tracking-wider uppercase">Call Diesel FAQ</p>
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-dark text-balance">
+          Doorstep diesel delivery — common questions
+        </h2>
+        <p className="mt-4 text-foreground/70">
+          Everything you need to know about ordering diesel from Call Diesel in Chennai.
+        </p>
+      </div>
+      <div className="mt-10 max-w-3xl mx-auto divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
+        {HOME_FAQS.map((f) => (
+          <details key={f.q} className="group px-4 sm:px-6 py-4 sm:py-5">
+            <summary className="cursor-pointer list-none font-display font-semibold text-primary-dark flex items-start justify-between gap-3 text-sm sm:text-base">
+              <span className="text-pretty">{f.q}</span>
+              <span className="text-primary text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 function HomePage() {
   return (
     <div>
@@ -709,6 +749,7 @@ function HomePage() {
       <LicensesTrust />
       <AppDownload />
       <Testimonials />
+      <HomeFAQ />
       <CTA />
     </div>
   );

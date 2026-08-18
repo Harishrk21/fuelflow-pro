@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Block legacy redirect path from indexing
+Disallow: /mobile-app
+
 Sitemap: https://www.calldiesel.in/sitemap.xml

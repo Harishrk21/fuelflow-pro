@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHero, BrochureFigure } from "@/components/site/PageParts";
-import { pageHead } from "@/lib/seo";
+import { pageHead, crumbs } from "@/lib/seo";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { TiltCard } from "@/components/site/TiltCard";
 import atfHeroBg from "@/assets/atf-hero-dashboard.png";
@@ -16,10 +16,11 @@ export const Route = createFileRoute("/atf")({
   component: Page,
   head: () =>
     pageHead({
-      title: "ATF — Any Time Fuel Management Device | Call Diesel",
+      title: "ATF Fuel Management Device | Call Diesel Chennai",
       description:
-        "ATF: stationery diesel data management device with live fuel levels, sub-asset consumption, authorised dispensing and savings tracking.",
+        "Call Diesel ATF (Any Time Fuel): live diesel tank levels, sub-asset consumption tracking, authorised dispensing, and savings analytics for Chennai industries.",
       path: "/atf",
+      breadcrumbs: [...crumbs.atf],
     }),
 });
 
@@ -74,7 +75,7 @@ function Page() {
       />
       <WhatsAppMarketingStrip />
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +150,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-10">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-10">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="text-primary font-semibold text-sm tracking-wider uppercase">Any Time Fuel</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold text-primary-dark">
@@ -190,7 +191,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <div className="rounded-3xl bg-card border border-border shadow-elegant p-6 md:p-10">
           <div className="flex items-center justify-between mb-8">
             <div>

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { PageHero, BrochureFigure } from "@/components/site/PageParts";
-import { pageHead } from "@/lib/seo";
+import { pageHead, crumbs } from "@/lib/seo";
 import { WhatsAppMarketingStrip } from "@/components/site/WhatsAppMarketingStrip";
 import { VehicleSpecs } from "@/components/site/VehicleSpecs";
 import technologyHeroBg from "@/assets/technology-hero-updated.png";
@@ -17,10 +17,11 @@ export const Route = createFileRoute("/technology")({
   component: Page,
   head: () =>
     pageHead({
-      title: "Technology — IoT, GPS & Smart Fuel Dispensing | Call Diesel",
+      title: "IoT & GPS Doorstep Diesel Technology | Call Diesel",
       description:
-        "Accurate GPS geo-fencing, IoT brake-interlock, mobile petrol pump tech and authorised dispensing from Call Diesel.",
+        "Call Diesel technology: GPS geo-fencing, IoT brake-interlock, mobile petrol pump dispensing, and secure authorised doorstep diesel delivery in Chennai.",
       path: "/technology",
+      breadcrumbs: [...crumbs.technology],
     }),
 });
 
@@ -315,7 +316,7 @@ function TechExplorer() {
   const layer = techLayers[active];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Explore the stack</p>
         <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">
@@ -380,7 +381,7 @@ function DeliveryFlow() {
   const step = deliverySteps[activeStep];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-24 bg-gradient-hero border-y border-border/60">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 bg-gradient-hero border-y border-border/60">
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">How it all connects</p>
         <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary-dark">
@@ -500,7 +501,7 @@ function MobilePumpBento() {
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
       <div className="text-center max-w-2xl mx-auto mb-10">
         <p className="text-primary font-semibold text-sm tracking-wider uppercase">Mobile petrol pump</p>
         <h2 className="mt-3 text-4xl font-display font-bold text-primary-dark">
@@ -557,7 +558,7 @@ function MobilePumpBento() {
 
 function CustomerBenefits() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-20 md:pb-28">
       <div className="rounded-3xl bg-gradient-primary p-8 md:p-12 shadow-elegant text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_20%,white,transparent_50%)]" />
         <div className="relative">
